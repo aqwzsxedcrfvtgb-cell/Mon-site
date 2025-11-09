@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil</title>
+  <style>
+    /* ===============================
+       STYLE GLOBAL DE LA PAGE
+    ================================ */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Message de bienvenue */
+    h1 {
+      font-size: 50px;
+      color: white;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 2s ease, glow 3s ease-in-out infinite alternate;
+    }
+
+    /* Animation d'apparition */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Animation d’effet lumineux sur le texte */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #fff, 0 0 20px #00b4d8; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 30px #0077b6; }
+      100% { text-shadow: 0 0 10px #fff, 0 0 20px #00b4d8; }
+    }
+
+    /* Petites bulles animées en arrière-plan */
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>✨ Bienvenue sur mon site ✨</h1>
+
+  <!-- Génération de bulles -->
+  <script>
+    // Crée 15 bulles animées
+    for (let i = 0; i < 15; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 60 + 20; // taille entre 20 et 80px
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* Style général */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    background: #fff;
+    margin: 40px auto;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres */
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #222;
+    border-left: 5px solid #1a73e8;
+    padding-left: 10px;
+    margin-top: 40px;
+}
+
+/* Paragraphes */
+p {
+    margin: 10px 0;
+}
+
+/* Listes générales */
+ul, ol {
+    margin: 10px 0 25px 40px;
+    line-height: 1.6;
+}
+
+/* Styles des puces */
+ul.cercle {
+    list-style-type: circle;
+}
+
+ul.carre {
+    list-style-type: square;
+}
+
+ul.rien {
+    list-style-type: none;
+}
+
+/* Styles des numéros */
+ol.commence_a_zero {
+    list-style-type: decimal-leading-zero;
+}
+
+ol.lettres_minuscules {
+    list-style-type: lower-alpha;
+}
+
+ol.chiffres_romains {
+    list-style-type: upper-roman;
+}
+
+ol.lettres_grecques {
+    list-style-type: lower-greek;
+}
+
+/* Effet au survol */
+li {
+    transition: transform 0.2s, color 0.2s;
+}
+
+li:hover {
+    transform: translateX(5px);
+    color: #1a73e8;
+}

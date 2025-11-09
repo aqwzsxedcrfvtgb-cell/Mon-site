@@ -1,0 +1,30 @@
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  font-size: 25px;
+}
+
+/* Style de l’en-tête */
+header {
+  display: flex;                  /* met tout sur une même ligne */
+  justify-content: space-between; /* espace entre les éléments */
+  align-items: center;            /* aligne verticalement au centre */
+  background-color: #f0f0f0;      /* couleur de fond */
+  padding: 10px 20px;             /* marges internes */
+}
+
+header h1 {
+  font-size: 40px;
+  color: #333;
+  text-align: center;
+  flex: 1; /* le texte prend l’espace du milieu */
+}
+
+/* Style des paragraphes */
+p {
+  text-align: justify; /* texte justifié pour les paragraphes */
+  line-height: 1.6;    /* espace entre les lignes */
+  font-size: 18px;     /* taille du texte */
+}

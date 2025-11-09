@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exercice Tableau</title>
+  <style>
+    /* 🌍 Style général */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🧱 Conteneur principal */
+    .container {
+      max-width: 900px;
+      background: #fff;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* 🏷️ Titres */
+    h1 {
+      text-align: center;
+      color: #1a73e8;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    /* 📋 Zone des tableaux */
+    .tables {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    /* 🧾 Encadrement de chaque tableau */
+    .table-wrapper {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .table-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+    /* 📊 Tableaux stylés */
+    .styled-table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+
+    .styled-table td {
+      border: 2px solid #555;
+      padding: 15px;
+      text-align: center;
+      min-width: 60px;
+      font-weight: 500;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .highlight {
+      background: #dbeafe;
+      color: #1a73e8;
+      font-weight: bold;
+    }
+
+    /* 🔤 Texte en rotation */
+    p {
+      transform: rotate(30deg);
+      margin: 0;
+    }
+
+    /* 🩵 Effet survol sur cellules */
+    td:hover {
+      background-color: #f0f7ff;
+      transition: background 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Exercice Tableau (1, 2, 3)</h1>
+
+    <div class="tables">
+      <!-- Tableau 1 -->
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <tr>
+            <td colspan="2" class="center highlight">
+              <p>RGL1</p>
+            </td>
+          </tr>
+          <tr>
+            <td>RGL2</td>
+            <td>RGL3</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Tableau 2 -->
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <tr>
+            <td rowspan="2"><p>RSM1</p></td>
+            <td>RM2</td>
+          </tr>
+          <tr>
+            <td>RM3</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Tableau 3 -->
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <tr>
+            <td colspan="3" class="center highlight">A</td>
+          </tr>
+          <tr>
+            <td rowspan="2">B</td>
+            <td colspan="2" class="center">C</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>E</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

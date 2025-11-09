@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accueil - Julio BOCCO.D</title>
+
+  <style>
+    /* ================================
+       STYLE GLOBAL
+    ================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #00bcd4, #007bff);
+      color: white;
+      overflow: hidden;
+    }
+
+    /* ================================
+       HEADER PLEIN ÉCRAN
+    ================================ */
+    header {
+      height: 100vh; /* Occupe toute la hauteur de l’écran */
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 20px;
+      background: linear-gradient(135deg, #007bff, #00bcd4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+      border-radius: 0; /* en plein écran, pas besoin d’arrondis */
+    }
+
+    /* ================================
+       IMAGES DU HEADER
+    ================================ */
+    header img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.08);
+    }
+
+    /* ================================
+       TEXTE CENTRAL
+    ================================ */
+    header h1 {
+      text-align: center;
+      flex: 1;
+      font-size: 40px;
+      line-height: 1.5;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      animation: slideUp 1.5s ease-out;
+    }
+
+    header h1 a {
+      color: #ffe600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    header h1 a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    /* ================================
+       EFFETS ET ANIMATIONS
+    ================================ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ================================
+       BULLES ANIMÉES DE FOND
+    ================================ */
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+      z-index: 0;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="https://www.enseignementsecondaire.gouv.bj/" target="_top">
+      <img src="logo_Ministère.png" alt="Logo Ministère">
+    </a>
+
+    <h1>
+      BIENVENUE DANS MON SITE <br>
+      <a href="presentation.html#Section_1" target="contenu">Julio BOCCO.D</a> À VOTRE SERVICE
+    </h1>
+
+    <a href="https://pigier-benin.com/" target="_top">
+      <img src="PIGIER.jpeg.webp" alt="Logo Pigier" style="width: 100px;">
+    </a>
+  </header>
+
+  <!-- Effet bulles -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const size = Math.random() * 60 + 20;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* ==========================================
+   STYLE GLOBAL MODERNISÉ – Version Julio
+========================================== */
+
+/* Importation de la police "Poppins" depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Réinitialisation des styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corps du document */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  color: #333;
+  line-height: 1.7;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   LISTE PRINCIPALE
+========================================== */
+ol {
+  counter-reset: section; /* Réinitialise le compteur */
+  margin-top: 50px;
+  list-style: none;
+}
+
+/* Chaque grande section (li) */
+ol > li {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol */
+ol > li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Numérotation décorative */
+ol > li::before {
+  counter-increment: section;
+  content: counter(section) ".";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 32px;
+  color: #007bff;
+  font-weight: bold;
+  opacity: 0.2;
+}
+
+/* ==========================================
+   TITRES DE SECTIONS AVEC ICONES
+========================================== */
+li h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icône par défaut */
+li h3::before {
+  content: "💡";
+}
+
+/* Icônes personnalisées */
+li:nth-child(2) h3::before { content: "🎓"; }
+li:nth-child(3) h3::before { content: "🎮"; }
+li:nth-child(4) h3::before { content: "💼"; }
+
+/* ==========================================
+   LISTES INTERNES
+========================================== */
+ul, ol ul {
+  list-style: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Symbole de coche avant chaque élément */
+ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+/* ==========================================
+   IMAGES
+========================================== */
+a img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  height: auto;
+}
+
+/* Zoom et ombre renforcée au survol */
+a img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* ==========================================
+   PARAGRAPHES
+========================================== */
+p {
+  text-align: justify;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (Mobile & Tablette)
+========================================== */
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  ol > li {
+    padding: 20px;
+  }
+
+  a img {
+    width: 200px;
+  }
+
+  li h3 {
+    font-size: 20px;
+  }
+}
