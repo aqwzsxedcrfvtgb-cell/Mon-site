@@ -23,9 +23,29 @@
       align-items: center;
       justify-content: start;
       color: white;
-      overflow: hidden; /* important pour cacher les bulles */
+      overflow-y: auto; /* ✅ Active la barre verticale */
+      overflow-x: hidden; /* Pas de barre horizontale */
       position: relative;
       animation: fadeIn 1.2s ease-in;
+    }
+
+    /* Personnalisation de la barre de défilement (pour les navigateurs modernes) */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #fff;
     }
 
     /* Titre principal */
@@ -108,15 +128,15 @@
   <h2>Menu Principal</h2>
 
   <ul>
-    <li><a href="accueil.html" target="contenu"> Accueil</a></li>
-    
-    <li><a href="Page_2.html" target="contenu"> Présentation</a></li>
-    <li><a href="presentation.html" target="contenu">  À propos</a></li>
-    <li><a href="liste.html" target="contenu"> Liste</a></li>
-    <li><a href="Table.html" target="contenu"> Table</a></li>
-    <li><a href="form.html" target="contenu">  Formulaire</a></li>
-    <li><a href="Galerie_3D.html" target="contenu"> Galerie 3D</a></li>
-    <li><a href="CV.html" target="contenu"> CV</a></li>
+    <li><a href="accueil.html" target="contenu">Accueil</a></li>
+    <li><a href="Page_2.html" target="contenu">Présentation</a></li>
+    <li><a href="presentation.html" target="contenu">À propos</a></li>
+    <li><a href="liste.html" target="contenu">Liste</a></li>
+    <li><a href="Table.html" target="contenu">Table</a></li>
+    <li><a href="form.html" target="contenu">Formulaire</a></li>
+    <li><a href="Galerie_3D.html" target="contenu">Galerie 3D</a></li>
+    <li><a href="CV.html" target="contenu">CV</a></li>
+    <li><a href="Bile.html" target="contenu">Blog</a></li>
   </ul>
 
   <!-- 🌊 Effet bulles -->

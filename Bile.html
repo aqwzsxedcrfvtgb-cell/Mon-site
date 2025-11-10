@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Une soirée pas comme les autres — Récit</title>
+
+  <!-- Police Google (internet requis) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #071029;
+      --bg2: #0f2a44;
+      --card: rgba(255,255,255,0.04);
+      --accent: #6dd3ff;
+      --glass: rgba(255,255,255,0.06);
+      --text: #e7f0fb;
+      --muted: #b8d7ee;
+    }
+
+    /* RESET MINIMAL */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(109,211,255,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-y:auto;
+      scroll-behavior:smooth;
+      padding:40px 20px;
+    }
+
+    /* CONTENEUR PRINCIPAL */
+    .page {
+      max-width:1000px;
+      margin: 0 auto;
+      position:relative;
+      z-index:2;
+    }
+
+    header.site-head{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:22px;
+    }
+
+    .logo {
+      width:78px;
+      height:78px;
+      border-radius:14px;
+      background: linear-gradient(135deg,#6a11cb,#2575fc);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      box-shadow: 0 8px 24px rgba(2,10,30,0.6), inset 0 -6px 18px rgba(255,255,255,0.06);
+      flex-shrink:0;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.6rem;
+      letter-spacing:0.2px;
+      font-weight:700;
+    }
+    p.lead{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* CARTE LECTURE */
+    article.card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass);
+      border-radius:14px;
+      padding:30px;
+      box-shadow: 0 10px 30px rgba(2,10,30,0.5);
+      backdrop-filter: blur(6px) saturate(1.05);
+      overflow:hidden;
+    }
+
+    .meta {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    .content p{
+      margin:14px 0;
+      font-size:1.03rem;
+      line-height:1.75;
+      color:var(--text);
+      transition: transform 240ms ease, background 240ms ease;
+      padding:6px 8px;
+      border-radius:8px;
+    }
+
+    /* effet léger quand on survole un paragraphe */
+    .content p:hover{
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* TITRE SECTION */
+    .chapter{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .chapter .dot{
+      width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 6px 18px rgba(109,211,255,0.12);
+    }
+    .chapter h2{
+      margin:0;font-size:1.05rem;color:var(--accent);
+      font-weight:600;
+    }
+
+    /* EFFET BUBBLES (FOND) */
+    .bubbles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    .bubble{
+      position:absolute;
+      bottom:-200px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+      filter: blur(6px) saturate(1.1);
+      opacity:0.9;
+      will-change: transform, opacity;
+      mix-blend-mode: screen;
+      animation-name: rise, wobble;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.9; }
+      70% { opacity: 0.6; }
+      100% { transform: translateY(-140vh) translateX(-40px) scale(1.4); opacity: 0; }
+    }
+    @keyframes wobble {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(25px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* SCROLLBAR stylée (webkit) */
+    ::-webkit-scrollbar{ width:10px; }
+    ::-webkit-scrollbar-track{ background: rgba(255,255,255,0.02); border-radius:999px; }
+    ::-webkit-scrollbar-thumb{ background: linear-gradient(180deg,#6a11cb,#2575fc); border-radius:999px; }
+
+    /* RESPONSIVE */
+    @media (max-width:720px){
+      body{ padding:22px 14px; }
+      .logo{ width:64px;height:64px;border-radius:12px }
+      h1{ font-size:1.25rem }
+      article.card{ padding:18px }
+      .content p{ font-size:1rem }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true"></div>
+
+  <div class="page" role="main">
+    <header class="site-head" aria-label="En-tête du récit">
+      <div class="logo">JD</div>
+      <div>
+        <h1>Une soirée pas comme les autres</h1>
+        <p class="lead">Un récit noir, une montée d'adrénaline et un retournement de destin.</p>
+      </div>
+    </header>
+
+    <article class="card" aria-labelledby="title">
+      <div class="meta"> <span>📅 1:00</span> <span>— NUIT</span> <span style="opacity:.7">| Récit court</span> </div>
+
+      <div class="content" id="title" tabindex="0">
+        <p>La soirée battait son plein. Seul dans le noir, face à un écran éveillé, les lumières défilaient l’une après l’autre. Des personnes jouaient leurs différents rôles. Il sonnait une heure du matin.</p>
+
+        <p>L’écran du téléphone s’alluma : un appel. Je venais tout juste de raccrocher, aussitôt. Je cherchai un pull-over, sortis sans même le porter.</p>
+
+        <p>L’air était glacial. Les rues étaient désertes, plus aucun signe de vie dans le quartier. Je pouvais entendre, au loin, un orchestre de crapauds. La maison était un peu reculée de la ville, pas de zem en vue.</p>
+
+        <p>Je pressai le pas. Il n’avait même pas remarqué l’obscurité qui régnait. Je venais de prendre le pavé. Toujours pas de zem en vue. Je sortis mon téléphone, mais le remis rapidement dans ma poche.</p>
+
+        <p>Le ciel grondait. Des éclats de lumière traversaient le ciel noir et sombre. — Merde ! Je n’ai rien prévu pour me protéger…</p>
+
+        <p>Un frisson me parcourut le dos. J’ai senti une main d’ombre se poser sur mon épaule. C’est alors que je remarquai une voiture grise me dépassant, les vitres légèrement baissées. Le moteur était muet, pas un seul bruit n’en sortait. La voiture s’arrêta juste après moi.</p>
+
+        <p>L’atmosphère devint étrange. Mon cœur battait à tout rompre, tout mon être criait : <em>Cours ! Cours !</em> Mais je n’avais pas la force nécessaire. Oui, je le savais, ma décision allait influencer le reste de mon existence.</p>
+
+        <p>Soudain, je reconnus la maison à ma droite. Je pris mes jambes à mon cou et entrai dans la maison. Oui, je savais que toutes les chambres seraient fermées. Pas le temps de frapper à une porte pour réveiller les occupants, il serait déjà trop tard.</p>
+
+        <p>Je courus tout droit, avec l’intention d’escalader la clôture, de tomber dans l’autre ruelle et de prendre un nouveau chemin. Et oui, je connaissais mon quartier à la perfection.</p>
+
+        <p>Tout à coup, je vis la porte de la dernière chambre ouverte, le rideau arraché, le bois au sol. Il baignait dans un liquide. Je venais d’effectuer un saut en hauteur. — Merde ! J’ai raté le mur, je l'ai pris en pleine figure !</p>
+
+        <p>Ma tête heurta brusquement le sol. Sans attendre, je me remis sur mes pieds. Hélas, ils ne pouvaient plus supporter le poids de mon corps.</p>
+
+        <p>Les hommes vus précédemment entraient également dans la maison, cagoulés, des armes à la main. Mon regard se tourna vers la chambre. Il resta figé sur place.</p>
+
+        <p>Son sang se glaça dans ses veines. Ce qu’il venait de voir dépassait tout ce qu’il avait imaginé. Une peur glaciale l’envahit, ses mains se mirent à trembler. Ses yeux s’écarquillèrent, sa bouche s’entrouvrit légèrement. Pendant un instant, le temps s’était arrêté.</p>
+
+        <p>Rapidement, je pris conscience que ma place n’était pas ici. Je m’étais retrouvé au mauvais endroit, au mauvais moment. J’eus envie de crier de toutes mes forces, mais les silencieux installés sur leurs armes me le déconseillaient. Je parie que c'étaient des professionnels.</p>
+
+        <p>J’eus envie de tenter une nouvelle tentative, mais les douleurs de la première me clouaient au sol. Je me mis à genoux, comme dans les films, pendant que les hommes avançaient vers moi. Je mis la tête entre les jambes.</p>
+
+        <p>Pendant une seconde, je me suis dit : <em>Et si j’avais continué à marcher sans montrer ma peur ?</em> Non… tu n’aurais pas survécu. T’as vu la plaque d’immatriculation ?</p>
+
+        <p>À cet instant, je maudis les dieux. Mon cœur ralentit, ma respiration diminua, mes sens s’éteignirent… Ma douleur disparut.</p>
+
+        <p>Je venais de tomber dans les pommes.</p>
+      </div>
+
+      <div style="margin-top:18px; color:var(--muted); font-size:0.9rem;">
+        <strong> histoire à suivre </strong>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    /* Génère des bulles aléatoires dans l'élément .bubbles */
+    (function makeBubbles(){
+      const container = document.querySelector('.bubbles');
+      const count = 18;
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+      for(let i=0;i<count;i++){
+        const b = document.createElement('div');
+        b.className = 'bubble';
+        const size = Math.random() * 120 + 24; // taille entre 24 et 144px
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+        // position initiale horizontale
+        b.style.left = Math.random() * (vw - 40) + 'px';
+        // variation d'opacité
+        b.style.opacity = (Math.random()*0.6 + 0.25).toFixed(2);
+        // durations
+        const dur = (10 + Math.random()*18).toFixed(2);
+        b.style.animationDuration = dur + 's, ' + (3 + Math.random()*4).toFixed(2) + 's';
+        // delay
+        b.style.animationDelay = (Math.random()*6).toFixed(2) + 's';
+        // horizontal drift
+        b.style.transform = `translateX(${(Math.random()*60-30).toFixed(2)}px)`;
+        container.appendChild(b);
+      }
+    })();
+  </script>
+</body>
+</html>
